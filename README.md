@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple example steps.
   
 ### Install
 - `npm install`
-- `npm install --dev` (to install the dev dependencies, like webpack)
+- `npm install --also=dev` (to install the dev dependencies, like webpack)
 
 ### Usage
 
