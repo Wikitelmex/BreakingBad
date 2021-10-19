@@ -1,3 +1,4 @@
+
 import { MyHttpRequest } from './httpRequests.js';
 import { DomRequest } from './domRequests.js';
 import { Templates } from './domTemplates.js';
@@ -15,9 +16,28 @@ const populateComments = (id) => {
       DomRequest.appendTemplate('commentsContainer', Templates.commentsSection(comment));
     });
     counter.textContent = elementsCounter(comments);
+
   });
 };
 
+
+
+const addReservation = (id) => {
+  const commentName = document.querySelector('#comment-name');
+  const startDate = document.querySelector('#startDate');
+  const endDate = document.querySelector('#endDate');
+
+  if (commentName.value !== '') {
+    const comment = {
+      item_id: id,
+      username: commentName.value,
+      date_start: startDate.value,
+      date_end: endDate.value,
+    };
+    const commentHttpRequester = new MyHttpRequest(reservationsURL);
+    commentHttpRequester.postAsync(comment).then(() => {
+      populateReservations(id);
+      commentName.value = '';
 
 
 const addComment = (id) => {
@@ -34,12 +54,15 @@ const addComment = (id) => {
       populateComments(id);
       username.value = '';
       content.value = '';
+
     });
   }
 };
 
 
+
 export const populatePopup = (list, index) => {
+
   const character = list[index];
   const image = document.querySelector('#chr-img');
   image.src = character.img;
@@ -50,6 +73,22 @@ export const populatePopup = (list, index) => {
   document.querySelector('#chr-occupation').innerHTML = mainOccupation;
   document.querySelector('#chr-nickname').innerHTML = character.nickname;
   document.querySelector('#chr-actor').innerHTML = character.portrayed;
+
+  document.querySelector('#CommRes').innerHTML='Reservations(<span id="comments-counter">0</span>)';
+  document.querySelector('#AddCommRes').innerHTML='Add a Reservation';
+  const currDate = new Date();
+  const currFormatDate = `${currDate.getFullYear()}-${String(currDate.getMonth() + 1).padStart(2, '0')}-${String(currDate.getDate()).padStart(2, '0')}`;
+  const nextyFormatDate = `${currDate.getFullYear()+1}-${String(currDate.getMonth() + 1).padStart(2, '0')}-${String(currDate.getDate()).padStart(2, '0')}`;
+
+  DomRequest.sustituteTemplate('FormCommRes', Templates.popupReservations(currFormatDate,nextyFormatDate));
+
+  populateReservations(character.char_id);
+
+  DomRequest.clear('reservation-btn');
+  DomRequest.appendTemplate('reservation-btn', Templates.reservationButton());
+  const button = document.querySelector('#reservation-submit');
+  button.addEventListener('click', () => { addReservation(character.char_id); });
+};
   document.querySelector('#CommRes').innerHTML='Comments(<span id="comments-counter">0</span>)';
   document.querySelector('#AddCommRes').innerHTML='Add a Comment';
   DomRequest.sustituteTemplate('FormCommRes', Templates.popupComments());
@@ -61,4 +100,3 @@ export const populatePopup = (list, index) => {
   const button = document.querySelector('#comment-submit');
   button.addEventListener('click', () => { addComment(character.char_id); });
 };
-
