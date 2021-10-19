@@ -1,6 +1,6 @@
 export class Templates {
-    static CharacterCard(element = {}) {
-      const res = `
+  static CharacterCard(element = {}) {
+    const res = `
         <div class="card m-3 w18rem">
           <img src="${element.img}" class="card-img-top mt-3 imgCard" alt="walter white" >
           <div class="card-body">
@@ -16,38 +16,38 @@ export class Templates {
           </div>
         </div>
       `;
-      return res;
-    }
+    return res;
+  }
 
-    static commentsSection(comment = {}) {
-      const res = `
+  static commentsSection(comment = {}) {
+    const res = `
       <p>
         <i>${comment.creation_date} </i>
         <b>${comment.username}: </b>
         <span>${comment.comment}</span>
       </p>
       `;
-      return res;
-    }
+    return res;
+  }
 
-    static popupComments() {
-      const res = `
+  static popupComments() {
+    const res = `
         <input id="comment-name" type="text" class="mb-2" name="name" placeholder="Your name" required>
         <br>
         <textarea id="comment-content" name="comment-content" cols="30" rows="5" placeholder="Your comment" required></textarea>
         <br>
         <div id="comment-btn"></div>
       `;
-      return res;
-    }
-
-    static commentButton() {
-      const res = '<button id="comment-submit" type="button" class="btn btn-outline-success shadow m-1">Comment</button>';
-      return res;
-    }
-  
-    static reservationButton() {
-      const res = '<button id="reservation-submit" type="button" class="btn btn-outline-success shadow m-1">Reserve</button>';
-      return res;
-    }
+    return res;
   }
+
+  static commentButton() {
+    const res = '<button id="comment-submit" type="button" class="btn btn-outline-success shadow m-1">Comment</button>';
+    return res;
+  }
+
+  static reservationButton() {
+    const res = '<button id="reservation-submit" type="button" class="btn btn-outline-success shadow m-1">Reserve</button>';
+    return res;
+  }
+}
