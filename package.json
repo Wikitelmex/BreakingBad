@@ -1,5 +1,5 @@
 {
-  "name": "breaking-bad",
+  "name": "CRUDClass-webpack-linters-jest",
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "private": true,
@@ -18,11 +18,13 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "css-loader": "^6.3.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.2.4",
     "style-loader": "^3.3.0",
     "webpack": "^5.56.0",
-    "webpack-cli": "^4.8.0",
+    "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.0"
   },
   "scripts": {
