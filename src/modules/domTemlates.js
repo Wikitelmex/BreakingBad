@@ -40,14 +40,47 @@ export class Templates {
       `;
     return res;
   }
+    static commentButton() {
+      const res = '<button id="comment-submit" type="button" class="btn btn-outline-success shadow m-1">Comment</button>';
+      return res;
+    }
+  
+    static reservationButton() {
+      const res = '<button id="reservation-submit" type="button" class="btn btn-outline-success shadow m-1">Reserve</button>';
+      return res;
+    }
 
-  static commentButton() {
-    const res = '<button id="comment-submit" type="button" class="btn btn-outline-success shadow m-1">Comment</button>';
-    return res;
-  }
+    static reservationSection(comment = {}) {
+      const res = `
+      <p>
+        <span>${comment.date_start} to</span>
+        <span>${comment.date_end}</span>
+        <span>by ${comment.username}</span>
+      </p>
+      `;
+      return res;
+    }
+    
+    static popupReservations(currFormatDate='1983-08-05', nextyFormatDate='1983-08-05') {
+      const res = `
+        <input id="comment-name" type="text" class="mb-2" name="name" placeholder="Your name" required>
+        <br>
+        <label for="startDate">Start date:</label>
+        <input type="date" id="startDate" name="res-start"
+              value="${currFormatDate}"
+              min="${currFormatDate}" max="${nextyFormatDate}">
+        <br>
+        <label for="endDate">End date:</label>
+        <input type="date" id="endDate" name="res-end"
+                value="${currFormatDate}"
+                min="${currFormatDate}" max="${nextyFormatDate}">
+        <br>
+        <div id="reservation-btn"></div>
+      `;
+      return res;
+    }
 
-  static reservationButton() {
-    const res = '<button id="reservation-submit" type="button" class="btn btn-outline-success shadow m-1">Reserve</button>';
-    return res;
+    
+
+
   }
-}
