@@ -1,16 +1,25 @@
+
+import { MyHttpRequest } from './httpRequests.js';
+import { DomRequest } from './domRequests.js';
 import { Templates } from './domTemplates.js';
-const populateReservations = (id) => {
+import { elementsCounter } from './tools.js';
+
+const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AOlok8LvMamqLq187WOm/comments';
+
+const populateComments = (id) => {
   DomRequest.clear('commentsContainer');
-  const commentHttpRequester = new MyHttpRequest(`${reservationsURL}?item_id=${id}`);
+  const commentHttpRequester = new MyHttpRequest(`${commentsURL}?item_id=${id}`);
   const counter = document.querySelector('#comments-counter');
   counter.textContent = 0;
-  commentHttpRequester.getAsync().then((reservations) => {
-    reservations.forEach((reservation) => {
-      DomRequest.appendTemplate('commentsContainer', Templates.reservationSection(reservation));
+  commentHttpRequester.getAsync().then((comments) => {
+    comments.forEach((comment) => {
+      DomRequest.appendTemplate('commentsContainer', Templates.commentsSection(comment));
     });
-    counter.textContent = elementsCounter(reservations);
+    counter.textContent = elementsCounter(comments);
+
   });
 };
+
 
 
 const addReservation = (id) => {
@@ -29,12 +38,31 @@ const addReservation = (id) => {
     commentHttpRequester.postAsync(comment).then(() => {
       populateReservations(id);
       commentName.value = '';
+
+
+const addComment = (id) => {
+  const username = document.querySelector('#comment-name');
+  const content = document.querySelector('#comment-content');
+  if (username.value !== '' && content.value !== '') {
+    const comment = {
+      item_id: id,
+      username: username.value,
+      comment: content.value,
+    };
+    const commentHttpRequester = new MyHttpRequest(commentsURL);
+    commentHttpRequester.postAsync(comment).then(() => {
+      populateComments(id);
+      username.value = '';
+      content.value = '';
+
     });
   }
 };
 
 
-export const populatePopupReservation = (list, index) => {
+
+export const populatePopup = (list, index) => {
+
   const character = list[index];
   const image = document.querySelector('#chr-img');
   image.src = character.img;
@@ -60,4 +88,15 @@ export const populatePopupReservation = (list, index) => {
   DomRequest.appendTemplate('reservation-btn', Templates.reservationButton());
   const button = document.querySelector('#reservation-submit');
   button.addEventListener('click', () => { addReservation(character.char_id); });
+};
+  document.querySelector('#CommRes').innerHTML='Comments(<span id="comments-counter">0</span>)';
+  document.querySelector('#AddCommRes').innerHTML='Add a Comment';
+  DomRequest.sustituteTemplate('FormCommRes', Templates.popupComments());
+
+  populateComments(character.char_id);
+
+  DomRequest.clear('comment-btn');
+  DomRequest.appendTemplate('comment-btn', Templates.commentButton());
+  const button = document.querySelector('#comment-submit');
+  button.addEventListener('click', () => { addComment(character.char_id); });
 };
