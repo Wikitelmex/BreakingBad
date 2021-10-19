@@ -5,7 +5,6 @@ import { elementsCounter } from './tools.js';
 
 const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AOlok8LvMamqLq187WOm/comments';
 
-// STUDENT B 2 START
 const populateComments = (id) => {
   DomRequest.clear('commentsContainer');
   const commentHttpRequester = new MyHttpRequest(`${commentsURL}?item_id=${id}`);
@@ -18,9 +17,28 @@ const populateComments = (id) => {
     counter.textContent = elementsCounter(comments);
   });
 };
-// STUDENT B 2 END
 
-// STUDENT B 1 START
+
+
+const addComment = (id) => {
+  const username = document.querySelector('#comment-name');
+  const content = document.querySelector('#comment-content');
+  if (username.value !== '' && content.value !== '') {
+    const comment = {
+      item_id: id,
+      username: username.value,
+      comment: content.value,
+    };
+    const commentHttpRequester = new MyHttpRequest(commentsURL);
+    commentHttpRequester.postAsync(comment).then(() => {
+      populateComments(id);
+      username.value = '';
+      content.value = '';
+    });
+  }
+};
+
+
 export const populatePopup = (list, index) => {
   const character = list[index];
   const image = document.querySelector('#chr-img');
@@ -32,8 +50,8 @@ export const populatePopup = (list, index) => {
   document.querySelector('#chr-occupation').innerHTML = mainOccupation;
   document.querySelector('#chr-nickname').innerHTML = character.nickname;
   document.querySelector('#chr-actor').innerHTML = character.portrayed;
-  document.querySelector('#CommRes').innerHTML = 'Comments(<span id="comments-counter">0</span>)';
-  document.querySelector('#AddCommRes').innerHTML = 'Add a Comment';
+  document.querySelector('#CommRes').innerHTML='Comments(<span id="comments-counter">0</span>)';
+  document.querySelector('#AddCommRes').innerHTML='Add a Comment';
   DomRequest.sustituteTemplate('FormCommRes', Templates.popupComments());
 
   populateComments(character.char_id);
@@ -43,4 +61,4 @@ export const populatePopup = (list, index) => {
   const button = document.querySelector('#comment-submit');
   button.addEventListener('click', () => { addComment(character.char_id); });
 };
-// STUDENT B 1 END
+
