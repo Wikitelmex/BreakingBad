@@ -13,13 +13,25 @@ const populateReservations = (id) => {
 };
 
 
+const addReservation = (id) => {
+  const commentName = document.querySelector('#comment-name');
+  const startDate = document.querySelector('#startDate');
+  const endDate = document.querySelector('#endDate');
 
-
-
-
-
-
-
+  if (commentName.value !== '') {
+    const comment = {
+      item_id: id,
+      username: commentName.value,
+      date_start: startDate.value,
+      date_end: endDate.value,
+    };
+    const commentHttpRequester = new MyHttpRequest(reservationsURL);
+    commentHttpRequester.postAsync(comment).then(() => {
+      populateReservations(id);
+      commentName.value = '';
+    });
+  }
+};
 
 
 export const populatePopupReservation = (list, index) => {
