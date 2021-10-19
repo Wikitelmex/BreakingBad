@@ -81,7 +81,4 @@ export class Templates {
       return res;
     }
 
-    
-
-
   }
