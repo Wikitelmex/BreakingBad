@@ -15,7 +15,7 @@ The APIs consumed are https://www.breakingbadapi.com/api/characters, https://us-
 - Bootstrap
 
 ## Live Demo
-[Live Demo Link](https://wikitelmex.github.io/kanban-capstone/)
+[Live Demo Link](https://wikitelmex.github.io/BreakingBad/)
 
 
 ## Getting Started
@@ -54,9 +54,9 @@ Before we start, make sure you fit the prerequisites, the source code is inside 
 - LinkedIn: [Ahmed Adel](https://www.linkedin.com/in/ahmed-adel56/)
 
 👤 **Alex Castillo**
-- GitHub: [@githubhandle](https://github.com/Wikitelmex)
-- Twitter: [@twitterhandle](https://twitter.com/Alejand84515448)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alejandro-castillo-6849131a9/)
+- GitHub: [@Alex](https://github.com/Wikitelmex)
+- Twitter: [@Alex](https://twitter.com/Alejand84515448)
+- LinkedIn: [Alex Castillo](https://www.linkedin.com/in/alejandro-castillo-6849131a9/)
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
