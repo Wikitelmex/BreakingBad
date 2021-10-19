@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import './style.css';
-import { myLocalStorage } from "./modules/myLocalstorage";
+import { myLocalStorage } from './modules/myLocalstorage';
 
 function component() {
   const element = document.createElement('div');
-  const myLS = new myLocalStorage;
+  const myLS = new myLocalStorage();
 
   myLS.save();
 
