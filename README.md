@@ -17,7 +17,7 @@ The APIs consumed are https://www.breakingbadapi.com/api/characters, https://us-
 [Live Demo Link](https://wikitelmex.github.io/BreakingBad/)
 
 ## Video
-[Loom Video](https://www.loom.com/share/4d996cb5cd55433598d233bca83758ea)
+[Loom Video](https://www.loom.com/share/2784a643d3b94301af8573617c949100)
 
 ## Getting Started
 Before we start, make sure you fit the prerequisites, the source code is inside the folder SRC/ and the built code used to the live demo is inside of DOCS/
