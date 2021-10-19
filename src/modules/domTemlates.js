@@ -50,4 +50,19 @@ export class Templates {
       const res = '<button id="reservation-submit" type="button" class="btn btn-outline-success shadow m-1">Reserve</button>';
       return res;
     }
+
+    static reservationSection(comment = {}) {
+      const res = `
+      <p>
+        <span>${comment.date_start} to</span>
+        <span>${comment.date_end}</span>
+        <span>by ${comment.username}</span>
+      </p>
+      `;
+      return res;
+    }
+    
+    
+
+
   }
