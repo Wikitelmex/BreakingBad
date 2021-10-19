@@ -11,7 +11,6 @@ const likesHttpRequester = new MyHttpRequest('https://us-central1-involvement-ap
 let myArray = [];
 
 const setEventListeners = (myArray) => {
-
   const commentBtns = document.querySelectorAll('.comment-btn');
   commentBtns.forEach((item, index) => {
     item.addEventListener('click', () => {
@@ -26,7 +25,6 @@ const setEventListeners = (myArray) => {
       populatePopupReservation(myArray, index);
     });
   });
-
 };
 
 window.refreshData = () => {

@@ -26,7 +26,7 @@ Before we start, make sure you fit the prerequisites, the source code is inside 
 - VSCode
 
 ### Setup
-- git clone https://github.com/Wikitelmex/kanban-capstone.git
+- git clone https://github.com/Wikitelmex/BreakingBad
   
 ### Install
 - `npm install`
@@ -43,15 +43,17 @@ Before we start, make sure you fit the prerequisites, the source code is inside 
 - `npm run build` and update github pages
 
 ## Authors
-👤 **Nacho Sala**
+👤 **Ismael Antonio**
+- GitHub: [@githubhandle](https://github.com/ixboy)
+- Twitter: [@twitterhandle](https://twitter.com/ismaelixboy)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ismaelantonio/)
 
-- GitHub: [@nachosala89](https://github.com/nachosala89)
-- Twitter: [@nachosala89](https://twitter.com/nachosala89)
-- LinkedIn: [Juan Ignacio Sala](https://www.linkedin.com/in/juan-ignacio-sala)
-
+👤 ** Ahmed Adel**
+- GitHub: [@ahmedadel56](https://github.com/ahmedadel56)
+- Twitter: [@ahmedadel56](https://twitter.com/tiredashell0)
+- LinkedIn: [Ahmed Adel](https://www.linkedin.com/in/ahmed-adel56/)
 
 👤 **Alex Castillo**
-
 - GitHub: [@githubhandle](https://github.com/Wikitelmex)
 - Twitter: [@twitterhandle](https://twitter.com/Alejand84515448)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/alejandro-castillo-6849131a9/)

@@ -6,7 +6,6 @@ import { elementsCounter } from './tools.js';
 const commentsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AOlok8LvMamqLq187WOm/comments';
 const reservationsURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AOlok8LvMamqLq187WOm/reservations';
 
-// STUDENT B 2 START
 const populateComments = (id) => {
   DomRequest.clear('commentsContainer');
   const commentHttpRequester = new MyHttpRequest(`${commentsURL}?item_id=${id}`);
@@ -19,9 +18,7 @@ const populateComments = (id) => {
     counter.textContent = elementsCounter(comments);
   });
 };
-// STUDENT B 2 END
 
-// STUDENT C 2 START
 const populateReservations = (id) => {
   DomRequest.clear('commentsContainer');
   const commentHttpRequester = new MyHttpRequest(`${reservationsURL}?item_id=${id}`);
@@ -34,10 +31,7 @@ const populateReservations = (id) => {
     counter.textContent = elementsCounter(reservations);
   });
 };
-// STUDENT C 2 END
 
-
-// STUDENT B 3 START
 const addComment = (id) => {
   const username = document.querySelector('#comment-name');
   const content = document.querySelector('#comment-content');
@@ -55,9 +49,7 @@ const addComment = (id) => {
     });
   }
 };
-// STUDENT B 3 END
 
-// STUDENT C 3 START
 const addReservation = (id) => {
   const commentName = document.querySelector('#comment-name');
   const startDate = document.querySelector('#startDate');
@@ -77,9 +69,7 @@ const addReservation = (id) => {
     });
   }
 };
-// STUDENT C 3 END
 
-// STUDENT B 1 START
 export const populatePopup = (list, index) => {
   const character = list[index];
   const image = document.querySelector('#chr-img');
@@ -91,8 +81,8 @@ export const populatePopup = (list, index) => {
   document.querySelector('#chr-occupation').innerHTML = mainOccupation;
   document.querySelector('#chr-nickname').innerHTML = character.nickname;
   document.querySelector('#chr-actor').innerHTML = character.portrayed;
-  document.querySelector('#CommRes').innerHTML='Comments(<span id="comments-counter">0</span>)';
-  document.querySelector('#AddCommRes').innerHTML='Add a Comment';
+  document.querySelector('#CommRes').innerHTML = 'Comments(<span id="comments-counter">0</span>)';
+  document.querySelector('#AddCommRes').innerHTML = 'Add a Comment';
   DomRequest.sustituteTemplate('FormCommRes', Templates.popupComments());
 
   populateComments(character.char_id);
@@ -102,9 +92,7 @@ export const populatePopup = (list, index) => {
   const button = document.querySelector('#comment-submit');
   button.addEventListener('click', () => { addComment(character.char_id); });
 };
-// STUDENT B 1 END
 
-// STUDENT C 1 START
 export const populatePopupReservation = (list, index) => {
   const character = list[index];
   const image = document.querySelector('#chr-img');
@@ -117,13 +105,13 @@ export const populatePopupReservation = (list, index) => {
   document.querySelector('#chr-nickname').innerHTML = character.nickname;
   document.querySelector('#chr-actor').innerHTML = character.portrayed;
 
-  document.querySelector('#CommRes').innerHTML='Reservations(<span id="comments-counter">0</span>)';
-  document.querySelector('#AddCommRes').innerHTML='Add a Reservation';
+  document.querySelector('#CommRes').innerHTML = 'Reservations(<span id="comments-counter">0</span>)';
+  document.querySelector('#AddCommRes').innerHTML = 'Add a Reservation';
   const currDate = new Date();
   const currFormatDate = `${currDate.getFullYear()}-${String(currDate.getMonth() + 1).padStart(2, '0')}-${String(currDate.getDate()).padStart(2, '0')}`;
-  const nextyFormatDate = `${currDate.getFullYear()+1}-${String(currDate.getMonth() + 1).padStart(2, '0')}-${String(currDate.getDate()).padStart(2, '0')}`;
+  const nextyFormatDate = `${currDate.getFullYear() + 1}-${String(currDate.getMonth() + 1).padStart(2, '0')}-${String(currDate.getDate()).padStart(2, '0')}`;
 
-  DomRequest.sustituteTemplate('FormCommRes', Templates.popupReservations(currFormatDate,nextyFormatDate));
+  DomRequest.sustituteTemplate('FormCommRes', Templates.popupReservations(currFormatDate, nextyFormatDate));
 
   populateReservations(character.char_id);
 
@@ -132,4 +120,3 @@ export const populatePopupReservation = (list, index) => {
   const button = document.querySelector('#reservation-submit');
   button.addEventListener('click', () => { addReservation(character.char_id); });
 };
-// STUDENT C 1 END
