@@ -46,9 +46,9 @@ Before we start, make sure you fit the prerequisites, the source code is inside 
 
 ## Authors
 👤 **Ismael Antonio**
-- GitHub: [@githubhandle](https://github.com/ixboy)
-- Twitter: [@twitterhandle](https://twitter.com/ismaelixboy)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ismaelantonio/)
+- GitHub: [ixboy](https://github.com/ixboy)
+- Twitter: [@ismaelixboy](https://twitter.com/ismaelixboy)
+- LinkedIn: [Ismael Antonio](https://www.linkedin.com/in/ismaelantonio/)
 
 👤 ** Ahmed Adel**
 - GitHub: [@ahmedadel56](https://github.com/ahmedadel56)
