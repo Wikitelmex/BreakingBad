@@ -1,7 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Breaking Bad Api project
-
 > This App consumes an API with the info of the breaking bad, here, we're presenting the characters, and in other API, we're posting and reading the comments and likes.
 
 ![image](https://user-images.githubusercontent.com/59240486/137384970-79db261f-91b7-4216-93b8-d02fb302eb36.png)
